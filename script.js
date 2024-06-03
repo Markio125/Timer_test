@@ -38,12 +38,17 @@ class CountdownTimer {
         let hours = document.getElementById("myHours").value;
         let mins = document.getElementById("myMinutes").value;
         let secs = document.getElementById("mySeconds").value;
-        return {
-            days,
-            hours,
-            mins,
-            secs,
-        };
+        if ((hours <= 24) & (hours >= 0) & (mins >= 0) & (secs >= 0) & (mins <= 60) & (secs <= 60)){
+            return {
+                days,
+                hours,
+                mins,
+                secs,
+            };
+        }
+        else {
+            return 0;
+        }
     }
 
     updateTimer({ days, hours, mins, secs }) {
@@ -77,11 +82,19 @@ class CountdownTimer {
 
     startTimer() {
 		let timer = this.getTimeInput();
+        if (timer === 0) {
+            alert("Invalid input");
+            return;
+        }
 		this.updateTimer(timer);
 		this.interval = setInterval(() => {
 			timer = this.changeTime(timer);
 			this.updateTimer(timer);
-            if (!timer.totalSecs) clearInterval(this.interval);
+            if (!timer.totalSecs) {
+                clearInterval(this.interval);
+                document.getElementById(`clock${this.id}`).style.backgroundColor = 'Grey';
+                alert(`Timer ${this.id} is over`);
+            }
             console.log(timer)
 		}, 1000);
 	}
