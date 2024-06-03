@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(108, 108, 206);
+    display: flex;
+    flex-direction: column;
+ }
+.initial {
+    display: flex;
+    flex-direction: column;
+}
+.initial .totinp {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+.initial .numberin {
+    display: flex;
+    margin: 5px;
+}
+.initial .but {
+    display: flex;
+}
+.initial .but #abut {
+    width: 100px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clock {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    margin: 5px;
+    justify-content: space-around;
+}
+
+.clock .time {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
